@@ -17,24 +17,6 @@ modules:
         # login shell stays in the image so it works without Homebrew; CLI tools come from the Brewfile
         - zsh
         - zsh-syntax-highlighting
-        # development (base image already has gcc, make, bzip2 and patch)
-        - cmake
-        - gcc-c++
-        - postgresql
-        - postgresql-server
-        - ruby
-        # ruby-build compiles Ruby, and the pg gem links against libpq
-        - autoconf
-        - gdbm-devel
-        - libffi-devel
-        - libpq-devel
-        - libyaml-devel
-        - ncurses-devel
-        - openssl-devel
-        - perl-FindBin
-        - readline-devel
-        - rust
-        - zlib-devel
 
   # COPR repo file, because secureblue's os-release makes `dnf copr` look for secureblue chroots
   - type: dnf
