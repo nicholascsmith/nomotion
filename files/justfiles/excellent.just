@@ -62,8 +62,7 @@ excellent-setup:
 
     brew bundle --file=/usr/share/excellent/Brewfile
 
-    ujust set-flathub-unfiltered on
-    flatpak install --user --or-update -y --noninteractive flathub \
+    flatpak install --user --or-update -y --noninteractive flathub-verified \
         com.heroicgameslauncher.hgl \
         com.obsproject.Studio \
         com.brave.Browser \
