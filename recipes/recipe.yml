@@ -14,15 +14,7 @@ modules:
         - mpv
         - rsms-inter-fonts
         - transmission-gtk
-        # shell and CLI
-        - btop
-        - eza
-        - fastfetch
-        - fd-find
-        - rclone
-        - ripgrep
-        - sqlite
-        - zoxide
+        # login shell stays in the image so it works without Homebrew; CLI tools come from the Brewfile
         - zsh
         - zsh-syntax-highlighting
         # development (base image already has gcc, make, bzip2 and patch)
