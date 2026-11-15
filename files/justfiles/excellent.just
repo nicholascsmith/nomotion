@@ -1,4 +1,4 @@
-# Set up dotfiles, logins, zsh, Homebrew and Flatpaks after first boot; safe to re-run
+# Set up dotfiles, logins, zsh, DNS, Homebrew and Flatpaks after first boot; safe to re-run
 excellent-setup:
     #!/usr/bin/bash
     set -euo pipefail
@@ -58,6 +58,11 @@ excellent-setup:
 
     if [[ "$(getent passwd "$USER" | cut -d: -f7)" != /usr/bin/zsh ]]; then
         run0 -i usermod -s /usr/bin/zsh "$USER"
+    fi
+
+    # secureblue's DNS menu; its "Configure global DNS" option writes this file and enforces secure DNS on every connection
+    if [[ ! -f /etc/NetworkManager/conf.d/global-dns.conf ]]; then
+        ujust dns-selector
     fi
 
     brew bundle --file=/usr/share/excellent/Brewfile
