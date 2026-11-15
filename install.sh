@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Switches a fresh secureblue install to excellent-os. secureblue rejects images signed by keys it
+# Switches a fresh secureblue install to nomotion. secureblue rejects images signed by keys it
 # doesn't know, so this trusts the image's key just long enough to pull it, then puts the policy back
 # so the image's own policy takes over after the reboot. Run as root.
 set -euo pipefail
 
-image=ghcr.io/nicholascsmith/excellent-os
-key=/etc/pki/containers/excellent-os-install.pub
-registry=/etc/containers/registries.d/excellent-os.yaml
+image=ghcr.io/nicholascsmith/nomotion
+key=/etc/pki/containers/nomotion-install.pub
+registry=/etc/containers/registries.d/nomotion.yaml
 policy=/etc/containers/policy.json
 policy_tmp=$(mktemp)
 
@@ -16,7 +16,7 @@ restore() {
 trap restore EXIT
 
 mkdir -p /etc/pki/containers
-curl -fsSLo "$key" https://raw.githubusercontent.com/nicholascsmith/excellent-os/master/cosign.pub
+curl -fsSLo "$key" https://raw.githubusercontent.com/nicholascsmith/nomotion/master/cosign.pub
 jq --arg image "$image" --arg key "$key" \
 	'.transports.docker |= {($image): [{type: "sigstoreSigned", keyPath: $key, signedIdentity: {type: "matchRepository"}}]} + .' \
 	/usr/share/containers/policy.json >"$policy_tmp"

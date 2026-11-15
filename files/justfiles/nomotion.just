@@ -1,5 +1,5 @@
 # Set up dotfiles, logins, zsh, DNS, Homebrew and Flatpaks after first boot; safe to re-run
-excellent-setup:
+nomotion:
     #!/usr/bin/bash
     set -euo pipefail
 
@@ -65,7 +65,7 @@ excellent-setup:
         ujust dns-selector
     fi
 
-    brew bundle --file=/usr/share/excellent/Brewfile
+    brew bundle --file=/usr/share/nomotion/Brewfile
 
     flatpak install --user --or-update -y --noninteractive flathub-verified \
         com.heroicgameslauncher.hgl \

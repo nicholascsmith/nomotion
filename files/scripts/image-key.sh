@@ -4,13 +4,13 @@ set -euo pipefail
 # Runs after the signing module, which writes to /etc. Fedora 45 keeps the container defaults in
 # /usr/share, so this adds the image there and removes the /etc policy that would otherwise replace
 # secureblue's. /usr/share is read-only on the booted system, so nothing in /etc can block updates.
-image=ghcr.io/nicholascsmith/excellent-os
-key=/usr/share/pki/containers/excellent-os.pub
+image=ghcr.io/nicholascsmith/nomotion
+key=/usr/share/pki/containers/nomotion.pub
 policy=/usr/share/containers/policy.json
-registry=nicholascsmith-excellent-os.yaml
+registry=nicholascsmith-nomotion.yaml
 
 mkdir -p "$(dirname "$key")"
-mv /etc/pki/containers/excellent-os.pub "$key"
+mv /etc/pki/containers/nomotion.pub "$key"
 chmod 0644 "$key"
 
 jq --arg image "$image" --arg key "$key" \

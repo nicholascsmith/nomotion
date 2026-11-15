@@ -7,12 +7,12 @@ set -euo pipefail
 image_ref=$(rpm-ostree status --booted --json | jq -cr '.deployments[0]."container-image-reference"')
 
 case "${image_ref}" in
-    ostree-image-signed:docker://ghcr.io/nicholascsmith/excellent-os:*)
+    ostree-image-signed:docker://ghcr.io/nicholascsmith/nomotion:*)
         echo "Signature policy enforced for ${image_ref#*docker://}"
         ;;
     *)
-        echo "WARNING: '${image_ref}' does not enforce the excellent-os signature policy." >&2
-        echo "Run: run0 -i bootc switch --enforce-container-sigpolicy ghcr.io/nicholascsmith/excellent-os:latest" >&2
+        echo "WARNING: '${image_ref}' does not enforce the nomotion signature policy." >&2
+        echo "Run: run0 -i bootc switch --enforce-container-sigpolicy ghcr.io/nicholascsmith/nomotion:latest" >&2
         exit 1
         ;;
 esac

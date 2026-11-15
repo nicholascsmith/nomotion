@@ -1,4 +1,4 @@
-# excellent-os
+# nomotion
 
 A workstation image built with [BlueBuild](https://blue-build.org) on top of [secureblue](https://secureblue.dev)'s `silverblue-main-hardened` (GNOME). The image rebuilds daily and is signed. Dotfiles are installed after first boot.
 
@@ -12,14 +12,14 @@ A workstation image built with [BlueBuild](https://blue-build.org) on top of [se
 
    ```bash
    run0 -i
-   curl -fsSL https://raw.githubusercontent.com/nicholascsmith/excellent-os/master/install.sh | bash
+   curl -fsSL https://raw.githubusercontent.com/nicholascsmith/nomotion/master/install.sh | bash
    systemctl reboot
    ```
 
 ## First-Boot Setup
 
 ```bash
-ujust excellent-setup
+ujust nomotion
 ```
 
 The setup asks for input a few times, and is safe to re-run. It:
@@ -30,8 +30,9 @@ The setup asks for input a few times, and is safe to re-run. It:
 4. Creates a git signing key and registers it with GitLab
 5. Asks for the Context7 API key (press Enter to skip; re-run the setup to add it later)
 6. Switches the login shell to zsh
-7. Installs the Brewfile
-8. Installs the Flatpak apps, including Loupe
-9. Logs in to GitHub in Trivalent and registers the signing key there too
+7. Opens secureblue's DNS menu: choose **Configure global DNS**, then a provider
+8. Installs the Brewfile
+9. Installs the Flatpak apps from verified Flathub
+10. Logs in to GitHub in Trivalent and registers the signing key there too
 
 Afterwards, log out and back in.

@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-name: excellent-os
+name: nomotion
 description: GNOME workstation on secureblue.
 base-image: ghcr.io/secureblue/silverblue-main-hardened
 image-version: latest
