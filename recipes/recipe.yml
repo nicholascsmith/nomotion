@@ -34,10 +34,6 @@ modules:
       - source: system
         destination: /
 
-  - type: script
-    scripts:
-      - ssh-agent.sh
-
   - type: justfiles
 
   - type: signing
